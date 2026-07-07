@@ -72,13 +72,13 @@ public class KinoTest
         _d1 = Datum.get(11, 07, 2008);
 
         _vorstellungSaal1Film0 = new Vorstellung(_saal1, _film0, _u1, _u2, _d1,
-                Geldbetrag.get(900));
+                new Geldbetrag(900));
         _vorstellungSaal2Film1 = new Vorstellung(_saal2, _film1, _u1, _u2, _d1,
-                Geldbetrag.get(1000));
+                new Geldbetrag(1000));
         _vorstellungSaal2Film2a = new Vorstellung(_saal2, _film2, _u2, _u3, _d1,
-                Geldbetrag.get(900));
+                new Geldbetrag(900));
         _vorstellungSaal2Film2b = new Vorstellung(_saal2, _film2, _u3, _u4, _d1,
-                Geldbetrag.get(900));
+                new Geldbetrag(900));
 
         _alleVorstellungen = new Vorstellung[] {_vorstellungSaal1Film0,
                 _vorstellungSaal2Film1, _vorstellungSaal2Film2a,

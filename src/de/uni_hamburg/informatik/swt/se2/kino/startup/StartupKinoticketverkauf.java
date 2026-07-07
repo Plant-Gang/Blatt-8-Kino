@@ -67,53 +67,53 @@ public class StartupKinoticketverkauf
         final Vorstellung[] vorstellungen = {
                 // Heute
                 new Vorstellung(saele[0], filme[2], nachmittag, abend, d1,
-                        Geldbetrag.get(595)),
+                        new Geldbetrag(595)),
                 new Vorstellung(saele[0], filme[0], abend, spaet, d1,
-                        Geldbetrag.get(795)),
+                        new Geldbetrag(795)),
                 new Vorstellung(saele[0], filme[0], spaet, nacht, d1,
-                        Geldbetrag.get(795)),
+                        new Geldbetrag(795)),
 
                 new Vorstellung(saele[1], filme[3], nachmittag, abend, d1,
-                        Geldbetrag.get(995)),
+                        new Geldbetrag(995)),
                 new Vorstellung(saele[1], filme[1], spaet, nacht, d1,
-                        Geldbetrag.get(895)),
+                        new Geldbetrag(895)),
 
                 new Vorstellung(saele[2], filme[3], abend, spaet, d1,
-                        Geldbetrag.get(1095)),
+                        new Geldbetrag(1095)),
                 new Vorstellung(saele[2], filme[4], spaet, nacht, d1,
-                        Geldbetrag.get(995)),
+                        new Geldbetrag(995)),
 
                 // Morgen
                 new Vorstellung(saele[0], filme[0], abend, spaet, d2,
-                        Geldbetrag.get(595)),
+                        new Geldbetrag(595)),
                 new Vorstellung(saele[0], filme[0], spaet, nacht, d2,
-                        Geldbetrag.get(795)),
+                        new Geldbetrag(795)),
 
                 new Vorstellung(saele[1], filme[2], nachmittag, abend, d2,
-                        Geldbetrag.get(995)),
+                        new Geldbetrag(995)),
                 new Vorstellung(saele[1], filme[4], abend, nacht, d2,
-                        Geldbetrag.get(895)),
+                        new Geldbetrag(895)),
 
                 new Vorstellung(saele[2], filme[3], nachmittag, abend, d2,
-                        Geldbetrag.get(1095)),
+                        new Geldbetrag(1095)),
                 new Vorstellung(saele[2], filme[1], spaet, nacht, d2,
-                        Geldbetrag.get(995)),
+                        new Geldbetrag(995)),
 
                 // Übermorgen
                 new Vorstellung(saele[0], filme[1], abend, spaet, d3,
-                        Geldbetrag.get(595)),
+                        new Geldbetrag(595)),
                 new Vorstellung(saele[0], filme[1], spaet, nacht, d3,
-                        Geldbetrag.get(795)),
+                        new Geldbetrag(795)),
 
                 new Vorstellung(saele[1], filme[2], nachmittag, abend, d3,
-                        Geldbetrag.get(995)),
+                        new Geldbetrag(995)),
                 new Vorstellung(saele[1], filme[0], abend, nacht, d3,
-                        Geldbetrag.get(895)),
+                        new Geldbetrag(895)),
 
                 new Vorstellung(saele[2], filme[3], abend, spaet, d3,
-                        Geldbetrag.get(1095)),
+                        new Geldbetrag(1095)),
                 new Vorstellung(saele[2], filme[4], spaet, nacht, d3,
-                        Geldbetrag.get(995))};
+                        new Geldbetrag(995))};
 
         return new Kino(saele, vorstellungen);
     }

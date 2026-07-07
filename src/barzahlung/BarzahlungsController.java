@@ -1,9 +1,7 @@
-package de.uni_hamburg.informatik.swt.se2.kino.ui.barzahlung;
+package barzahlung;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-
-import de.uni_hamburg.informatik.swt.se2.kino.model.wertobjekte.Geldbetrag;
 
 /**
  * Mit diesem UI-Modul kann eine Barzahlung durchgeführt werden.

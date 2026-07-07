@@ -21,11 +21,11 @@ public class TagesplanTest
     private static final Uhrzeit _startzeit2 = Uhrzeit.get(0, 1);
     private static final Uhrzeit _endzeit = Uhrzeit.get(1, 1);
     private static final Vorstellung _vorstellung = new Vorstellung(_kinosaal,
-            _film, _startzeit, _endzeit, _datum, Geldbetrag.get(0));
+            _film, _startzeit, _endzeit, _datum, new Geldbetrag(0));
     private static final Vorstellung _vorstellung2 = new Vorstellung(_kinosaal,
-            _film, _startzeit2, _endzeit, _datum, Geldbetrag.get(0));
+            _film, _startzeit2, _endzeit, _datum, new Geldbetrag(0));
     private static final Vorstellung _vorstellung3 = new Vorstellung(_kinosaal2,
-            _film, _startzeit2, _endzeit, _datum, Geldbetrag.get(0));
+            _film, _startzeit2, _endzeit, _datum, new Geldbetrag(0));
 
     private Tagesplan _t;
 
