@@ -7,16 +7,16 @@ package barzahlung;
  * TODO 08: Testklasse, Kommentare
  * TODO 08: Wenn Impl usw fertig: In Package Wertobjekte schieben.
  */
-public record Geldbetrag(int _cent)
+public record Geldbetrag(int _cent) implements Comparable<Geldbetrag>
 {
+    public static final Geldbetrag ZERO = new Geldbetrag(0);
+
     /**
      * Konstruktor, der sicherstellt, dass Centbetrag >= 0 ist.
      * @param _cent
-     * @ensure _cent >= 0
      */
     public Geldbetrag(int _cent)
     {
-        // assert _cent >= 0 : "Vorbedingung verletzt: _cent >= 0";
         this._cent = _cent;
     }
 
@@ -44,17 +44,18 @@ public record Geldbetrag(int _cent)
         }
     }
 
-    public String getEuroAsString()
+    private String getEuroAsString()
     {
-        if (this._cent > 99)
-        {
-            return String.valueOf(this._cent)
-                .substring(0, this.length() - 2);
-        }
-        else
-        {
-            return "0";
-        }
+        //        if (this._cent > 99)
+        //        {
+        //            return String.valueOf(this._cent)
+        //                .substring(0, this.length() - 2);
+        //        }
+        //        else
+        //        {
+        //            return "0";
+        //        }
+        return String.valueOf(_cent / 100);
     }
 
     public int length()
@@ -68,7 +69,7 @@ public record Geldbetrag(int _cent)
      * Gibt den Centbetrag als 2-stelligen String zurück.
      * @return String ggf mit führender 0 bei einstelligen Centbeträgen
      */
-    public String getCentAsString()
+    private String getCentAsString()
     {
         if (this._cent < 10)
         {
@@ -187,9 +188,9 @@ public record Geldbetrag(int _cent)
      */
     public static Geldbetrag parse(String text)
     {
+        assert istGueltigString(
+                text) : "Vorbedingung verletzt: istGueltigString(text)";
         assert text != null : "Vorbedingung verletzt: text != null";
-        assert text.matches(
-                "[0-9]+,[0-9][0-9]") : "Vorbedingung verletzt: text hat kein gueltiges Format";
 
         String[] teile = text.split(",");
 
@@ -197,6 +198,23 @@ public record Geldbetrag(int _cent)
         int cent = Integer.parseInt(teile[1]);
 
         return new Geldbetrag(euro * 100 + cent);
+    }
+
+    public static boolean istGueltigString(String text)
+    {
+        return text.matches("[0-9]+,[0-9][0-9]");
+    }
+
+    @Override
+    public int compareTo(Geldbetrag g2)
+    {
+        return this._cent - g2._cent;
+    }
+
+    @Override
+    public String toString()
+    {
+        return getFormatiertenString();
     }
 
 }

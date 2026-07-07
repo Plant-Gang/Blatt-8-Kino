@@ -1,6 +1,7 @@
 package barzahlung;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
@@ -30,15 +31,15 @@ class BarzahlungsView
     /**
      * Initialisiert die UI.
      */
-    public BarzahlungsView()
+    public BarzahlungsView(Component cmpt)
     {
-        _dialog = erstelleDialog();
+        _dialog = erstelleDialog(cmpt);
     }
 
     /**
      * Erzeugt den Dialog, in dem die Barzahlung durchgeführt wird.
      */
-    private JDialog erstelleDialog()
+    private JDialog erstelleDialog(Component cmpt)
     {
         JDialog dialog = new JDialog();
         dialog.setTitle("Barzahlung");
@@ -50,6 +51,9 @@ class BarzahlungsView
 
         dialog.add(formularPanel, BorderLayout.CENTER);
         dialog.add(buttonPanel, BorderLayout.SOUTH);
+
+        dialog.pack();
+        dialog.setLocationRelativeTo(cmpt);
 
         return dialog;
     }
@@ -101,8 +105,7 @@ class BarzahlungsView
      */
     public void zeigeDialog()
     {
-        _dialog.pack();
-        _dialog.setLocationRelativeTo(null);
+
         _dialog.setVisible(true);
     }
 

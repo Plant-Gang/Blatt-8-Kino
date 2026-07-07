@@ -1,5 +1,6 @@
 package barzahlung;
 
+import java.awt.Component;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -28,14 +29,14 @@ public class BarzahlungsController
      * 
      * @require gesamtpreis != null
      */
-    public BarzahlungsController(Geldbetrag gesamtpreis)
+    public BarzahlungsController(Geldbetrag gesamtpreis, Component cmpt)
     {
         assert gesamtpreis != null : "Vorbedingung verletzt: gesamtpreis != null";
 
         _gesamtpreis = gesamtpreis;
         _barzahlungErfolgreich = false;
 
-        _view = new BarzahlungsView();
+        _view = new BarzahlungsView(cmpt);
 
         initialisiereAnzeige();
         registriereUIAktionen();
@@ -100,18 +101,19 @@ public class BarzahlungsController
         String eingabe = _view.getBezahltTextField()
             .getText();
 
-        try
+        if (Geldbetrag.istGueltigString(eingabe))
         {
             Geldbetrag bezahlt = Geldbetrag.parse(eingabe);
+            //TODO IstSubttarhieren möglich If Klausel
             Geldbetrag restbetrag = bezahlt.subtrahiere(_gesamtpreis);
 
             _view.getRestLabel()
                 .setText(restbetrag.getFormatiertenString());
 
             _view.getOKButton()
-                .setEnabled(bezahlt.getCent() >= _gesamtpreis.getCent());
+                .setEnabled(bezahlt.compareTo(_gesamtpreis) >= 0);
         }
-        catch (AssertionError error)
+        else
         {
             _view.getRestLabel()
                 .setText("Ungültige Eingabe");

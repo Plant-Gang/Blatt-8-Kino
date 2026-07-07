@@ -8,8 +8,9 @@ import org.junit.Test;
 
 public class GeldbetragTest
 {
+    //TODO Mehr Test als immer nur 1 Testfall!
     @Test
-    public void testeGetUndGetCent()
+    public void testGetCent()
     {
         Geldbetrag betrag = new Geldbetrag(250);
 

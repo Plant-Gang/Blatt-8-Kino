@@ -1,5 +1,6 @@
 package de.uni_hamburg.informatik.swt.se2.kino.ui.platzverkauf;
 
+import java.awt.Component;
 import java.util.List;
 import java.util.Set;
 
@@ -77,7 +78,8 @@ public class PlatzVerkaufsController
             .getAusgewaehltePlaetze();
         Geldbetrag preis = _vorstellung.getPreisFuerPlaetze(plaetze);
 
-        BarzahlungsController barzahlung = new BarzahlungsController(preis);
+        BarzahlungsController barzahlung = new BarzahlungsController(preis,
+                (Component) _view.getUIPanel());
 
         if (barzahlung.fuehreBarzahlungDurch())
         {
@@ -125,7 +127,7 @@ public class PlatzVerkaufsController
         else
         {
             _view.getPreisLabel()
-                .setText("Gesamtpreis: 0 Eurocent");
+                .setText("Gesamtpreis: " + Geldbetrag.ZERO);
         }
     }
 
